@@ -30,7 +30,7 @@ public class Main extends GameEngine
 
         //StartUpUI();
         menu = new Menu();
-       // PowerCal();
+
     }
 
     public static void main(String args[])
@@ -205,57 +205,5 @@ public class Main extends GameEngine
 
         }
     }
-
-    private void PowerCal()
-    {
-        int months = 52;
-        float loan = 31000;
-        float paymentPercent = 0.02f;
-        float interestRate = 1.2599f;
-        float payments = 0;
-        float TotalPaid = 0;
-        int monthPasted = 0;
-        int yearsPasted = 0;
-
-        for (int i = 0; i < months;i++)
-        {
-            payments = loan * paymentPercent;
-            loan -= payments;
-            TotalPaid += payments;
-            System.out.println("Monthly payments = " + payments);
-        }
-
-        System.out.println("After four years we would still owe = " + loan);
-        System.out.println("After four years we Paid = " + TotalPaid);
-
-        loan *= interestRate;
-        System.out.println("After interest = " + loan);
-
-        while (loan > 1000)
-        {
-            if(monthPasted == 12)
-            {
-                loan *= interestRate;
-                System.out.println("Still owe = " + loan);
-                monthPasted = 0;
-                yearsPasted ++ ;
-            }
-
-            payments = loan * paymentPercent;
-
-            if(payments <= 400)
-            {
-                payments = 400;
-            }
-            loan -= payments;
-            TotalPaid += payments;
-            System.out.println("Monthly payments = " + payments);
-            monthPasted ++;
-        }
-        System.out.println("It would take another " + yearsPasted + " more years to pay off ");
-        System.out.println(" We would have paid = " + TotalPaid + " in the end");
-    }
-
-
 }
 
